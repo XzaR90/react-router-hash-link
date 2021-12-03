@@ -1,7 +1,7 @@
 # React Router Hash Link
 
 [![npm](https://img.shields.io/npm/dm/@xzar90/react-router-hash-link?label=npm)](https://www.npmjs.com/package/@xzar90/react-router-hash-link)
-[![Publish](https://github.com/XzaR90/react-router-hash-link/actions/workflows/publish.yml/badge.svg)](https://github.com/XzaR90/react-router-hash-link/actions/workflows/publish.yml)
+[![Publish](https://github.com/XzaR90/react-router-hash-link/actions/workflows/publish.yml/badge.svg)](https://github.com/XzaR90/react-router-hash-link/actions/workflows/publish.yml) [![CodeQL](https://github.com/XzaR90/react-router-hash-link/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/XzaR90/react-router-hash-link/actions/workflows/codeql-analysis.yml)
 
 This is a solution to [React Router's issue of not scrolling to `#hash-fragments`](https://github.com/reactjs/react-router/issues/394#issuecomment-220221604) when using the `<Link>` component to navigate.
 
