@@ -1,16 +1,10 @@
 # React Router Hash Link
 
-[![npm](https://img.shields.io/npm/dm/react-router-hash-link?label=npm)](https://www.npmjs.com/package/react-router-hash-link) [![npm bundle size (version)](https://img.shields.io/bundlephobia/minzip/react-router-hash-link?color=purple)](https://bundlephobia.com/result?p=react-router-hash-link)
+[![npm](https://img.shields.io/npm/dm/@xzar90/react-router-hash-link?label=npm)](https://www.npmjs.com/package/@xzar90/react-router-hash-link)
 
 This is a solution to [React Router's issue of not scrolling to `#hash-fragments`](https://github.com/reactjs/react-router/issues/394#issuecomment-220221604) when using the `<Link>` component to navigate.
 
 When you click on a link created with `react-router-hash-link` it will scroll to the element on the page with the `id` that matches the `#hash-fragment` in the link. This will also work for elements that are created after an asynchronous data load. Note that you must use React Router's `BrowserRouter` for this to work.
-
----
-
-### [Live demo app for React Router Hash Link](https://react-router-hash-link.rafgraph.dev)
-
-Code is in the [`/demo`](/demo) folder, or open the [demo in CodeSandbox](https://githubbox.com/rafgraph/react-router-hash-link/tree/main/demo)
 
 ---
 
@@ -27,7 +21,7 @@ npm install --save react-router-hash-link
 ### `<HashLink>`
 
 ```js
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from '@xzar90/react-router-hash-link';
 
 ...
 
@@ -41,7 +35,7 @@ import { HashLink } from 'react-router-hash-link';
 ### `<NavHashLink>`
 
 ```js
-import { NavHashLink } from 'react-router-hash-link';
+import { NavHashLink } from '@xzar90/react-router-hash-link';
 
 ...
 
@@ -49,8 +43,12 @@ import { NavHashLink } from 'react-router-hash-link';
 // it will be active only if both the path and hash fragment match
 <NavHashLink
   to="/some/path#with-hash-fragment"
-  activeClassName="selected"
-  activeStyle={{ color: 'red' }}
+  className={(props) => {
+    return `${props.isActive ? 'isActive ' : ''}`;
+  }}
+  style={(props) => {
+    return props.isActive ? { fontWeight: 'bold' } : {};
+  }}
   // etc...
 >Link to Hash Fragment</NavHashLink>
 ```
@@ -66,7 +64,7 @@ import { NavHashLink } from 'react-router-hash-link';
 - Note that not all browsers have implemented options for `scrollIntoView` - see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) and [Can I Use](https://caniuse.com/#feat=scrollintoview) - there is also a browser [polyfill for smooth scrolling](https://github.com/iamdustan/smoothscroll) which you can install separately so `smooth` will work in all browsers
 
 ```js
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from '@xzar90/react-router-hash-link';
 
 ...
 
@@ -83,7 +81,7 @@ import { HashLink } from 'react-router-hash-link';
 - This allows you to do things like scroll with offset, use a specific smooth scrolling library, or pass in your own options to `scrollIntoView`
 
 ```js
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from '@xzar90/react-router-hash-link';
 
 ...
 
@@ -103,7 +101,7 @@ import { HashLink } from 'react-router-hash-link';
 - This is inline with the [HTML spec](https://html.spec.whatwg.org/multipage/browsing-the-web.html#target-element), also see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Linking_to_an_element_on_the_same_page)
 
 ```js
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from '@xzar90/react-router-hash-link';
 
 ...
 
@@ -128,27 +126,6 @@ import { HashLink } from 'react-router-hash-link';
 
 ---
 
-## Custom `Link`
-
-The exported components are wrapped versions of the `Link` and `NavLink` exports of react-router-dom. In some cases you may need to provide a custom `Link` implementation.
-
-For example, the gatsby static site generator requires you to use its implementation of `Link`. You can wrap it with the `genericHashLink` function of this package.
-
-```jsx
-import { genericHashLink } from 'react-router-hash-link';
-import GatsbyLink from 'gatsby-link';
-
-const MyHashLink = genericHashLink(GatsbyLink);
-
-const MyComponent = () => (
-  <div>
-    The default wont work for you?
-    <MyHashLink to="/faq#how-to-use-custom-link">No problem!</MyHashLink>
-  </div>
-);
-```
-
----
 
 ## Focus Management
 
