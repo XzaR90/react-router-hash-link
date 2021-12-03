@@ -76,3 +76,7 @@ section {
   padding: 2.5vw 3.5vw 12vh 3.5vw;
   height: 100vh;
 }
+
+.isActive {
+  color: red;
+}

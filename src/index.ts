@@ -1,3 +1,4 @@
-export { genericHashLink } from './HashLink';
-export { HashLink } from './HashLink';
-export { NavHashLink } from './HashLink';
+import HashLink from './HashLink';
+import NavHashLink from './NavHashLink';
+
+export { NavHashLink, HashLink };

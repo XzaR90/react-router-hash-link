@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashLink, NavHashLink } from 'react-router-hash-link';
+import { HashLink, NavHashLink } from '@xzar90/react-router-hash-link';
 
 export const HashLinkPage: React.VFC = () => {
   return (
@@ -52,7 +52,9 @@ export const HashLinkPage: React.VFC = () => {
           <li>
             <NavHashLink
               smooth
-              activeStyle={{ fontWeight: 'bold' }}
+              className={(props) => {
+                return `${props.isActive ? 'isActive ' : ''}`;
+              }}
               to={'/page#section-two'}
             >
               Section Two NavHashLink
@@ -106,7 +108,9 @@ export const HashLinkPage: React.VFC = () => {
           <li>
             <NavHashLink
               smooth
-              activeStyle={{ fontWeight: 'bold' }}
+              style={(props) => {
+                return props.isActive ? { fontWeight: 'bold' } : {};
+              }}
               to={'/page#section-three'}
             >
               Section Three NavHashLink

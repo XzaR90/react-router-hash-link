@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from '@xzar90/react-router-hash-link';
 
 export const Home: React.VFC = () => {
   return (
