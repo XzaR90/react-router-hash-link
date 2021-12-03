@@ -7,6 +7,8 @@ This is a solution to [React Router's issue of not scrolling to `#hash-fragments
 
 When you click on a link created with `react-router-hash-link` it will scroll to the element on the page with the `id` that matches the `#hash-fragment` in the link. This will also work for elements that are created after an asynchronous data load. Note that you must use React Router's `BrowserRouter` for this to work.
 
+This is a fork of https://github.com/rafgraph/react-router-hash-link that can be used with react router v6.
+
 ---
 
 ## Basics
@@ -15,7 +17,7 @@ When you click on a link created with `react-router-hash-link` it will scroll to
 npm install --save react-router-hash-link
 ```
 
-`react-router-dom` is a peer dependency.
+`react-router-dom 6` and `react 17` is a peer dependency.
 
 ---
 
