@@ -22,8 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm ci
-      - run: npm test
+      - run: npm build
       - run: npm pack
       - uses: JS-DevTools/npm-publish@v1
         with:
