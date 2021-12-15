@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashLink } from '@xzar90/react-router-hash-link';
+import { GenericHashLink, HashLink } from '@xzar90/react-router-hash-link';
 
 export const Home: React.VFC = () => {
   return (
@@ -22,6 +22,16 @@ export const Home: React.VFC = () => {
           </li>
           <li>
             <HashLink to="/page#section-three">Section Three</HashLink>
+          </li>
+          <li>
+            <GenericHashLink to="/page#section-three">
+              <button
+                type="button"
+                onClick={() => console.log('clicked on custom button')}
+              >
+                Section Three
+              </button>
+            </GenericHashLink>
           </li>
         </ul>
       </nav>

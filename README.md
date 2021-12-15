@@ -129,6 +129,26 @@ import { HashLink } from '@xzar90/react-router-hash-link';
 
 ---
 
+## Custom `Link`
+
+The exported components are wrapped versions of the `Link` and `NavLink` exports of react-router-dom. In some cases you may need to provide a custom `Link` implementation.
+
+For example you may want to use a button, then you can wrap `button` with the `GenericHashLink`.
+
+```jsx
+import { GenericHashLink } from '@xzar90/react-router-hash-link';
+
+const MyComponent = () => (
+  <div>
+    The default wont work for you?
+    <GenericHashLink to="/faq#how-to-use-custom-link">
+      <button>No problem</button>
+    </GenericHashLink>
+  </div>
+);
+```
+
+---
 
 ## Focus Management
 

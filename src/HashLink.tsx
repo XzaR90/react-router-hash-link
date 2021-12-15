@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
+import { checkIfCanScroll } from './checkIfCanScroll';
 import { getLinkHash } from './getLinkHash';
-import { hashLinkScroll } from './hashLinkScroll';
 import { IHashLinkBaseProps } from './IHashLinkProps';
 import LinkState from './LinkState';
 import { reset } from './reset';
+import { scrollIntoView } from './scrollIntoView';
 
 const state = LinkState;
 type IHashLinkProps = IHashLinkBaseProps & LinkProps;
@@ -24,22 +25,9 @@ const NavHashLink: React.FC<IHashLinkProps> = React.forwardRef<
       onClick(e);
     }
 
-    if (
-      state.hashFragment !== '' &&
-      // ignore non-vanilla click events, same as react-router
-      // below logic adapted from react-router: https://github.com/ReactTraining/react-router/blob/fc91700e08df8147bd2bb1be19a299cbb14dbcaa/packages/react-router-dom/modules/Link.js#L43-L48
-      !e.defaultPrevented && // onClick prevented default
-      e.button === 0 && // ignore everything but left clicks
-      (!props.target || props.target === '_self') && // let browser handle "target=_blank" etc
-      !(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) // ignore clicks with modifier keys
-    ) {
-      const defaultScrollFn = (el: HTMLElement) =>
-        smooth
-          ? el.scrollIntoView({ behavior: 'smooth' })
-          : el.scrollIntoView();
-
-      state.scrollFunction = scroll || defaultScrollFn;
-      hashLinkScroll(timeout);
+    const canScroll = checkIfCanScroll(e, props);
+    if (canScroll) {
+      scrollIntoView(smooth, scroll, timeout);
     }
   };
 

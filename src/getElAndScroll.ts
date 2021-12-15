@@ -1,6 +1,6 @@
 import { isInteractiveElement } from './isInteractiveElement';
-import { reset } from './reset';
 import LinkState from './LinkState';
+import { reset } from './reset';
 
 const state = LinkState;
 

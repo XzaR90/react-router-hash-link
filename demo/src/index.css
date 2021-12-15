@@ -1,20 +1,3 @@
-/* normalize behavior on all elements */
-*,
-*::before,
-*::after {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  box-sizing: inherit;
-  font: inherit;
-  font-weight: inherit;
-  text-align: inherit;
-  line-height: inherit;
-  word-break: inherit;
-  color: inherit;
-  background: transparent;
-}
-
 /* set base styles for the app */
 body {
   color: rgb(0, 0, 0);
